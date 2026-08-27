@@ -1,0 +1,150 @@
+/* === 全体 === */
+body
+{
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    text-shadow: 
+    0 0 5px #f6f457,
+    0 0 10px #f6f457;
+
+    font-size: 20px;
+}
+
+.div_gp
+{
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="file"]
+{
+    font-size: 20px;
+    border: 2px solid #ffffff;
+    width: 500px;
+    height: 40px;
+}
+
+
+/* === 動画プレイヤー側 === */
+#video
+{
+    max-width: 1200px;
+    width: 100%;
+    height: auto;
+
+    border: 2px solid #ffffff;
+    margin: 5px;
+}
+
+
+
+/* === 音楽プレイヤー側 === */
+
+nav a {
+    color: white;
+}
+
+/* トップメニュー */
+#top_menu
+{
+    display: flex;
+    gap: 20px;
+}
+
+/* ボタンクラス */
+.button
+{
+    width: 150px;
+    height: auto;
+
+    background-color: #2f2f2f;
+
+    font-size: 20px;
+    color: #ffffff;
+    /* text-shadow: 
+    0 0 5px #f6f457,
+    0 0 10px #f6f457;
+
+    border-color: #f6f457; */
+
+    transition: 0.3s;
+}
+.button:active
+{
+    scale: 0.9;
+}
+/* 機能がオンの時のボタン */
+.Onfunction
+{
+    text-shadow: 
+    0 0 5px #f6f457,
+    0 0 10px #f6f457;
+
+    border-color: #f6f457;
+}
+
+/* 再生中の曲名 */
+#musicName
+{
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+
+/* プレイヤー */
+#audio
+{
+    width: 700px;
+}
+
+/* 機能セット */
+#function_set
+{
+    width: fit-content;
+}
+#function_setIcon
+{
+    width: fit-content;
+}
+.functionIcon {
+    width: 50px;
+    height: 50px;
+    filter: brightness(0) saturate(100%) invert(77%) sepia(96%) saturate(1000%) hue-rotate(1deg);
+
+    display: none;
+}
+
+/* それぞれのリストの曲 */
+.music_item
+{
+    margin: 4px;
+    transition: 0.3s;
+}
+.music_item:hover
+{
+    background-color: #ffffff5a;
+}
+
+/* 再生中の曲をハイライト */
+.playing
+{
+    animation: musicAnim 1.2s infinite;
+}
+
+@keyframes musicAnim
+{
+    0%
+    {
+        background-color: transparent;
+    }
+
+    50%
+    {
+        background-color: #f6f357ab;
+    }
+
+    100%
+    {
+        background-color: transparent;
+    }
+}
