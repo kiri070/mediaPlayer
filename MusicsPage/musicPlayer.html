@@ -4,13 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>音楽プレイヤー</title>
-        <link rel="stylesheet" href="style.css?v=0.01">
+        <link rel="stylesheet" href="../style.css?v=0.01">
     </head>
 <body>
     <div class="div_gp">
 
         <nav id="top_menu">
-            <a href="index.html" target="_blank">動画プレイヤーはこちら</a>
+            <a href="../index.html" target="_blank">動画プレイヤーはこちら</a>
             <a href="https://ytmp3.gl/" target="_blank">youtubeの動画をmp3保存するにはこちら</a>
         </nav>
 
@@ -24,7 +24,20 @@
             <audio id="audio" controls playsinline></audio>
 
             <fieldset id="function_set">
-                <button class="button" id="loopButton">繰り返し再生</button>
+                <div>
+                    <span>繰り返し</span><br>
+                    <img src="../Images/loopOff.png" class="buttonIcon" id="loopButton">
+                </div>
+                <div>
+                    <img src="../Images/back.png" class="buttonIcon" id="backButton">
+                </div>
+                <div>
+                    <img src="../Images/play.png" class="buttonIcon" id="playButton">
+                </div>
+                <div>
+                    <img src="../Images/next.png" class="buttonIcon" id="nextButton">
+                </div>
+                
             </fieldset>
             
         </div>
