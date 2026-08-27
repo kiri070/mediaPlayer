@@ -10,6 +10,21 @@ body
     font-size: 20px;
 }
 
+hr {
+
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #f6f457;
+
+    box-shadow: 
+    0 0 5px #f6f457,
+    0 0 10px #f6f457;
+    
+    border: none;
+    margin: 20px 0;
+}
+
 .div_gp
 {
     display: flex;
@@ -112,7 +127,7 @@ nav a {
     
     align-items: center;
 
-    gap: 10px;
+    gap: 30px;
 }
 
 .functionIcon {
@@ -121,6 +136,15 @@ nav a {
     filter: brightness(0) saturate(100%) invert(77%) sepia(96%) saturate(1000%) hue-rotate(1deg);
 
     display: none;
+}
+
+/* プレイリストの背景 */
+#playList_fieldset
+{
+    /* 模様：グリッド */
+    background-image: linear-gradient(#bacde015 1px, transparent 1px),
+    linear-gradient(90deg, #bacde015 1px, transparent 1px);
+    background-size: 30px 30px;
 }
 
 /* それぞれのリストの曲 */

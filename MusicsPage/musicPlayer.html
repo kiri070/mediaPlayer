@@ -16,8 +16,13 @@
 
         <div>
             <h1>音楽プレイヤー</h1>
+
+            <h3>1曲再生の場合</h3>
+
             <input type="file" id="musicFile" accept="audio/*">
         </div>
+
+        <hr>
 
         <div>
             <span id="musicName"></span><br>
@@ -42,11 +47,13 @@
             
         </div>
 
+        <hr>
+
         <div>
-            <h3>プレイリストに追加</h2>
+            <h3>プレイリストに追加</h3>
             <input type="file" id="addPlayList" accept="audio/*" multiple><br>
 
-            <fieldset>
+            <fieldset id="playList_fieldset">
                 <legend>プレイリスト</legend>
                 <div id="musicPlayList"></div>
             </fieldset>
