@@ -106,3 +106,44 @@ backButton.addEventListener("click", (e) =>{
         }
     }
 });
+
+//再生リストリピートボタン
+const repeatButton = document.getElementById("repeatButton");
+repeatButton.addEventListener("click", function(){
+
+    if(!isPlayList_loop)
+    {
+        isPlayList_loop = true;
+        repeatButton.classList.add("buttonIcon_repeat_anim");
+    }
+    else if(isPlayList_loop)
+    {
+        isPlayList_loop = false;
+        repeatButton.classList.remove("buttonIcon_repeat_anim");
+    }
+});
+
+//ボリューム
+const volumeButton = document.getElementById("volumeButton");
+volumeButton.addEventListener("click", function(){
+
+    if(audio.muted)
+    {
+        audio.muted = false;
+    }
+    else
+    {
+        audio.muted = true;
+    }
+});
+audio.addEventListener("volumechange", function() {
+    if(audio.muted || audio.volume === 0)
+    {
+        volumeButton.src = "../Images/volumeOff.png";
+    }
+    else
+    {
+        volumeButton.src = "../Images/volumeOn.png";
+    }
+});
+

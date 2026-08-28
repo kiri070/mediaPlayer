@@ -6,6 +6,7 @@ let isPlayList = false; //プレイリストが流れているか
 let listNum; //プレイリストの番号を保存
 let currentMusic = null;
 let musicName;
+let isPlayList_loop = false;
 
 const fileInput = document.getElementById("musicFile");
 const audio = document.getElementById("audio");
@@ -33,6 +34,23 @@ audio.addEventListener("ended", function(){
         {
             audio.src = URL.createObjectURL(musicList[listNum + 1]);
             listNum++;
+            musicName = musicList[listNum].name;
+
+            //再生中の曲をハイライト
+            if(currentMusic !== null)
+            {
+                currentMusic.classList.remove("playing");
+            }
+            currentMusic = playList.children[listNum];
+            currentMusic.classList.add("playing");
+
+            audio.play();
+        }
+        //リストループ中の場合
+        else if(isPlayList_loop)
+        {
+            listNum = 0;
+            audio.src = URL.createObjectURL(musicList[listNum]);
             musicName = musicList[listNum].name;
 
             //再生中の曲をハイライト

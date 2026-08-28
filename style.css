@@ -103,6 +103,32 @@ nav a {
     transform: scale(0.9);
 }
 
+.buttonIcon_repeat
+{
+    width: 50px;
+    height: 50px;
+    filter: invert(83%) sepia(90%) saturate(500%)
+            hue-rotate(5deg) brightness(110%);
+
+}
+.buttonIcon_repeat_anim
+{
+    animation: repeatAnim 1.5s infinite;
+}
+@keyframes repeatAnim
+{
+    0% 
+    {
+        transform: rotate(0deg);
+    }
+
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+
 
 /* 再生中の曲名 */
 #musicName
