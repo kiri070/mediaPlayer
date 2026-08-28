@@ -27,30 +27,36 @@
         <div>
             <span id="musicName"></span><br>
             <audio id="audio" controls playsinline></audio>
+            
+            <div id="function_drawArea">
+                <fieldset id="function_set">
+                    <div>
+                        <span>繰り返し</span><br>
+                        <img src="../Images/loopOff.png" class="buttonIcon" id="loopButton">
+                    </div>
+                    <div>
+                        <span>リピート</span><br>
+                        <img src="../Images/loop.png" class="buttonIcon_repeat" id="repeatButton">
+                    </div>
+                    <div>
+                        <img src="../Images/back.png" class="buttonIcon" id="backButton">
+                    </div>
+                    <div>
+                        <img src="../Images/play.png" class="buttonIcon" id="playButton">
+                    </div>
+                    <div>
+                        <img src="../Images/next.png" class="buttonIcon" id="nextButton">
+                    </div>
+                    <div>
+                        <img src="../Images/volumeOn.png" class="buttonIcon" id="volumeButton">
+                    </div>
+                    
+                </fieldset>
 
-            <fieldset id="function_set">
-                <div>
-                    <span>繰り返し</span><br>
-                    <img src="../Images/loopOff.png" class="buttonIcon" id="loopButton">
+                <div id="waveArea">
+                    <canvas id="waveform" width="800" height="50"></canvas>
                 </div>
-                <div>
-                    <span>リピート</span><br>
-                    <img src="../Images/loop.png" class="buttonIcon_repeat" id="repeatButton">
-                </div>
-                <div>
-                    <img src="../Images/back.png" class="buttonIcon" id="backButton">
-                </div>
-                <div>
-                    <img src="../Images/play.png" class="buttonIcon" id="playButton">
-                </div>
-                <div>
-                    <img src="../Images/next.png" class="buttonIcon" id="nextButton">
-                </div>
-                <div>
-                    <img src="../Images/volumeOn.png" class="buttonIcon" id="volumeButton">
-                </div>
-                
-            </fieldset>
+            </div>
             
         </div>
 
@@ -61,7 +67,7 @@
             <input type="file" id="addPlayList" accept="audio/*" multiple><br>
 
             <fieldset id="playList_fieldset">
-                <legend>プレイリスト</legend>
+                <legend>プレイリスト<span>&emsp;</span><span id="listCount"></span></legend>
                 <div id="musicPlayList"></div>
             </fieldset>
         </div>
@@ -71,5 +77,6 @@
 
     <script src="musicPlayer.js?v=0.01"></script>
     <script src="musicFunction.js?v=0.01"></script>
+    <script src="audioWave.js?v=0.01"></script>
 </body>
 </html>

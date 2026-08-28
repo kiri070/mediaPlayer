@@ -151,4 +151,7 @@ function addList(musicFile)
     });
 
     playList.appendChild(item);
+
+    const listCount = document.getElementById("listCount");
+    listCount.textContent = musicList.length + " 曲";
 }

@@ -66,6 +66,45 @@ nav a {
     gap: 20px;
 }
 
+#function_drawArea
+{
+    display: flex;
+    flex-direction: row;
+
+    gap: 10px;
+}
+#waveform
+{
+    margin-top: 30px;
+}
+#waveArea
+{
+    width: fit-content;
+
+    border: 2px solid #f6f457;
+    border-radius: 8px;
+
+    box-shadow:
+        0 0 5px #f6f457,
+        0 0 10px #f6f457,
+        inset 0 0 5px #f6f457;
+
+    padding: 5px;
+
+    /* 背景 */
+    background:
+        linear-gradient(#f6f45712 1px, transparent 1px),
+        linear-gradient(90deg, #f6f45712 1px, transparent 1px),
+        radial-gradient(circle at center, #f6f45718, transparent 70%),
+        #050505;
+
+    background-size:
+        20px 20px,
+        20px 20px,
+        100% 100%,
+        auto;
+}
+
 /* ボタンクラス */
 .button
 {
@@ -154,6 +193,8 @@ nav a {
     align-items: center;
 
     gap: 30px;
+
+    background-color: #0f0f0f;
 }
 
 .functionIcon {
@@ -205,5 +246,26 @@ nav a {
     100%
     {
         background-color: transparent;
+    }
+}
+
+
+@media (max-width: 1650px)
+{
+    #function_drawArea
+    {
+        flex-direction: column;
+    }
+
+    #function_drawArea > div
+    {
+        order: -1;
+    }
+
+    #waveform
+    {
+        margin-top: 0;
+        margin-left: 0;
+        width: 550px;
     }
 }
