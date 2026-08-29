@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>音楽プレイヤー</title>
-        <link rel="stylesheet" href="../style.css?v=0.01">
+        <link rel="stylesheet" href="../style.css?v=0.02">
     </head>
 <body>
     <div class="div_gp">
@@ -19,7 +19,7 @@
 
             <h3>1曲再生の場合</h3>
 
-            <input type="file" id="musicFile" accept="audio/*">
+            <input type="file" id="musicFile" accept="audio/*,.mp3">
         </div>
 
         <hr>
@@ -64,7 +64,7 @@
 
         <div>
             <h3>プレイリストに追加</h3>
-            <input type="file" id="addPlayList" accept="audio/*" multiple><br>
+            <input type="file" id="addPlayList" accept="audio/*,.mp3" multiple><br>
 
             <fieldset id="playList_fieldset">
                 <legend>プレイリスト<span>&emsp;</span><span id="listCount"></span></legend>
@@ -75,8 +75,21 @@
     </div>
     
 
-    <script src="musicPlayer.js?v=0.01"></script>
-    <script src="musicFunction.js?v=0.01"></script>
-    <script src="audioWave.js?v=0.01"></script>
+    <script src="musicPlayer.js?v=0.02"></script>
+    <script src="musicFunction.js?v=0.02"></script>
+    <script>
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        if (!isMobile)
+        {
+            const script = document.createElement("script");
+            script.src = "audioWave.js?v=0.02";
+            document.body.appendChild(script);
+        }
+        else
+        {
+            document.getElementById("waveArea").style.display = "none";
+        }
+    </script>
 </body>
 </html>

@@ -268,4 +268,51 @@ nav a {
         margin-left: 0;
         width: 550px;
     }
+
+    /* audioエリア */
+    #audio
+    {
+        width: 320px;
+    }
+    
+    /* 再生中の曲名 */
+    #musicName
+    {
+        font-size: 20px;
+        text-decoration: underline;
+    }
+
+    /* 機能セット */
+    #function_set
+    {
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        
+        align-items: center;
+
+        gap: 10px;
+
+        white-space: nowrap;
+
+        background-color: #0f0f0f;
+
+    }
+
+    .functionIcon {
+        width: 15px;
+        height: 15px;
+        filter: brightness(0) saturate(100%) invert(77%) sepia(96%) saturate(1000%) hue-rotate(1deg);
+
+        display: none;
+    }
+
+    #musicFile
+    {
+        width: 70%;
+    }
+    #addPlayList
+    {
+        width: 70%;
+    }
 }

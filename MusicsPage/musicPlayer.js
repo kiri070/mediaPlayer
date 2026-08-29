@@ -15,6 +15,12 @@ const audio = document.getElementById("audio");
 audio.addEventListener("play", function(){
 
     ShowName(musicName);
+
+    // AudioContextが停止していたら再開
+    if(audioContext.state === "suspended")
+    {
+        audioContext.resume();
+    }
 });
 //再生中の曲の名前を表示する関数
 function ShowName(file)
@@ -72,6 +78,19 @@ audio.addEventListener("ended", function(){
             }
         }
     }
+});
+
+// バックグラウンドから戻ってきたとき
+document.addEventListener("visibilitychange", () => {
+
+    if(document.visibilityState === "visible" && !audio.paused)
+    {
+        if(audioContext.state === "suspended")
+        {
+            audioContext.resume();
+        }
+    }
+
 });
 
 fileInput.addEventListener("change", () => {
