@@ -42,8 +42,9 @@ function SaveMusic(file)
 
     const store = transaction.objectStore("music");
 
+    const fileName = file.name.replace(".mp3", "");
     store.add({
-        name: file.name,
+        name: fileName,
         file: file
     });
 
