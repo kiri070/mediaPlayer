@@ -38,7 +38,15 @@ audio.addEventListener("ended", function(){
         //リストにまだ曲がある場合
         if(listNum < musicList.length - 1)
         {
-            audio.src = URL.createObjectURL(musicList[listNum + 1]);
+            if(musicList[listNum + 1].file)
+            {
+                audio.src = URL.createObjectURL(musicList[listNum + 1].file);
+            }
+            else
+            {
+                audio.src = URL.createObjectURL(musicList[listNum + 1]);
+            }
+
             listNum++;
             musicName = musicList[listNum].name;
 
@@ -56,7 +64,16 @@ audio.addEventListener("ended", function(){
         else if(isPlayList_loop)
         {
             listNum = 0;
-            audio.src = URL.createObjectURL(musicList[listNum]);
+
+            if(musicList[listNum].file)
+            {
+                audio.src = URL.createObjectURL(musicList[listNum].file);
+            }
+            else
+            {
+                audio.src = URL.createObjectURL(musicList[listNum]);
+            }
+
             musicName = musicList[listNum].name;
 
             //再生中の曲をハイライト
@@ -93,28 +110,28 @@ document.addEventListener("visibilitychange", () => {
 
 });
 
-fileInput.addEventListener("change", () => {
-    const file = fileInput.files[0];
+// fileInput.addEventListener("change", () => {
+//     const file = fileInput.files[0];
 
-    if (file) {
-        //ファイルパスを渡す
-        audio.src = URL.createObjectURL(file);
-        isPlayList = false;
-        musicName = file.name;
-    }
-});
+//     if (file) {
+//         //ファイルパスを渡す
+//         audio.src = URL.createObjectURL(file);
+//         isPlayList = false;
+//         musicName = file.name;
+//     }
+// });
 
-//ドラック判定
-fileInput.addEventListener("dragover", (e) => {
-    e.preventDefault();
-});
-fileInput.addEventListener("drop", (e) => {
-    e.preventDefault();
-    const data = e.dataTransfer.files[0];
-    audio.src = URL.createObjectURL(data);
-    isPlayList = false;
-    musicName = data.name;
-});
+// //ドラック判定
+// fileInput.addEventListener("dragover", (e) => {
+//     e.preventDefault();
+// });
+// fileInput.addEventListener("drop", (e) => {
+//     e.preventDefault();
+//     const data = e.dataTransfer.files[0];
+//     audio.src = URL.createObjectURL(data);
+//     isPlayList = false;
+//     musicName = data.name;
+// });
 
 
 // === プレイリスト ===
@@ -145,8 +162,10 @@ function addList(musicFile)
 {
     musicList.push(musicFile);
 
+    const name = musicFile.name.replace(".mp3",""); //.mp3を名前から削除
+
     const item = document.createElement("div");
-    item.textContent = musicFile.name;
+    item.textContent = name;
     item.classList.add("music_item");
 
     //クリックされたら現在の曲として流す
@@ -165,7 +184,7 @@ function addList(musicFile)
         currentMusic = item;
         currentMusic.classList.add("playing");
 
-        musicName = musicFile.name;
+        musicName = name;
         audio.play();
     });
 
@@ -173,4 +192,7 @@ function addList(musicFile)
 
     const listCount = document.getElementById("listCount");
     listCount.textContent = musicList.length + " 曲";
+
+    //DBに保存
+    SaveMusic(musicFile);
 }

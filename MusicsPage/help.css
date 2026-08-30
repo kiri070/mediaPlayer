@@ -1,0 +1,21 @@
+/* ヘルプ */
+#wherePlayList,#delete_help,#add_helpText
+{
+    position: fixed;
+    display: none;
+
+    border: 2px solid #f6f457;
+    border-radius: 8px;
+
+    box-shadow:
+        0 0 5px #f6f457,
+        0 0 10px #f6f457,
+        inset 0 0 5px #f6f457;
+
+    background-color: black;
+}
+
+#notPlayList,#deleteHelp,#addHelp
+{
+    text-decoration: underline;
+}

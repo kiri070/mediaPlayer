@@ -50,7 +50,15 @@ nextButton.addEventListener("click", (e) =>{
         //リストにまだ曲がある場合
         if(listNum < musicList.length - 1)
         {
-            audio.src = URL.createObjectURL(musicList[listNum + 1]);
+            if(musicList[listNum + 1].file)
+            {
+                audio.src = URL.createObjectURL(musicList[listNum + 1].file);
+            }
+            else
+            {
+                audio.src = URL.createObjectURL(musicList[listNum + 1]);
+            }
+
             listNum++;
             musicName = musicList[listNum].name;
 
@@ -82,7 +90,15 @@ backButton.addEventListener("click", (e) =>{
         if(listNum > 0)
         {
             listNum--;
-            audio.src = URL.createObjectURL(musicList[listNum]);
+
+            if(musicList[listNum].file)
+            {
+                audio.src = URL.createObjectURL(musicList[listNum].file);
+            }
+            else
+            {
+                audio.src = URL.createObjectURL(musicList[listNum]);
+            }
             
             musicName = musicList[listNum].name;
 

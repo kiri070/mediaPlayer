@@ -212,12 +212,19 @@ nav a {
     background-image: linear-gradient(#bacde015 1px, transparent 1px),
     linear-gradient(90deg, #bacde015 1px, transparent 1px);
     background-size: 30px 30px;
+
+    height: 200px;
+    overflow-y: auto;
 }
 
 /* それぞれのリストの曲 */
 .music_item
 {
     margin: 4px;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+
     transition: 0.3s;
 }
 .music_item:hover
@@ -247,6 +254,45 @@ nav a {
     {
         background-color: transparent;
     }
+}
+
+
+
+#musicMenu
+{
+    position: fixed;
+
+    display: none;
+
+    background-color: #0f0f0f;
+    border: 1px solid #f6f457;
+
+    padding: 5px;
+
+    z-index: 1000;
+}
+
+#deleteMusicButton
+{
+    background: none;
+    border: none;
+
+    color: white;
+
+    font-size: 18px;
+
+    padding: 10px 20px;
+
+    cursor: pointer;
+
+    text-shadow: 
+    0 0 5px #f6f457,
+    0 0 10px #f6f457;
+}
+
+#deleteMusicButton:hover
+{
+    background-color: #2f2f2f;
 }
 
 
